@@ -1,3 +1,245 @@
-'this is where the sourse code is'
 
-'create  a new avatar'
+l1 = [{"Shirish": "Python"}, {"Shirish": None}, {"Ajay": "AWS"}, {"Ajay": None}]
+l2={}
+for d in l1:
+    for key,val in d.items():
+        if key not in l2:
+            l2[key]=val
+print(l2)            
+
+def find_most_repeating(numbers):
+    count=0
+    frequency=None
+    for num in set(numbers):
+        temp=numbers.count(num)
+        if temp>count:
+            count=temp
+            frequency=num
+    return frequency
+    
+    
+nums = [1, 2, 2, 3, 3, 3,3,3,4,4,4,4]
+print(find_most_repeating(list(nums)))
+
+
+def find_missing(numbers):
+    total=sum(numbers)
+    num=len(numbers)+1
+    actual_sum=(num*(num+1))/2
+    print(actual_sum)
+    output=actual_sum-total
+    print(output)
+l1=[1,2,4,5]
+# find_missing(l1)
+print(len(l1)) 
+   
+
+def multiplication():
+    a=int(input("enter the number please:"))
+    b=int(input("enter the number please:"))
+    num=0
+    for i in range(1,b+1):
+        num+=a
+    print(num)    
+multiplication()
+
+
+
+def check_palindrome(string):
+    cleaned_string=[i.lower() for i in  string if i.isalnum()]
+    print(cleaned_string)
+    return cleaned_string==cleaned_string[::-1]
+test_strings = ["racecar", "A man, a plan, a canal, Panama!", "hello", "12321"]
+for test_string in test_strings:
+    print(f"{test_string} is a plindrome:",check_palindrome (test_string))
+
+
+
+def fizzbuzz(num):
+    for i in range(1,num+1):
+        if i%3==0 and i%5==0:
+            print('Fizzbuzz')
+        elif i%3==0:
+            print('Fizz')
+        elif i%5==0:
+            print('Buzz')
+        else:
+            print(i)
+
+fizzbuzz(20)
+
+
+s='a4b3c2'
+output=''
+for i in s:
+    if i.isalpha():
+        x=i
+    else:
+        d=int(i)
+        output=output+str(x)*d
+print(output)        
+
+ 
+
+# def right_rotation(list,num):
+#     output=[]
+#     for i in range(len(list)-num,len(list)):
+#         output.append(list[i])
+#     for i in range(0,len(list)-num):
+#         output.append(list[i])
+#     return output
+# l=[1,2,3,4,5]
+# num=3
+# print(right_rotation(l,num))
+        
+# def genrator(n):
+#     for i in range(1,n+1):
+#         yield i*i
+# a=genrator(3)
+# print(next(a))
+# print(next(a))
+# print(next(a))
+
+# def fizzbuzz(number):
+#     for num in range(1,number+1):
+#         if num%3==0 and num%5==0:
+#             print("Fizzbuzz")
+#         elif num%3==0:
+#             print("Fizz")
+#         elif num%5==0:
+#             print("Buzz")
+#         else:
+#             print(num)
+# fizzbuzz(20)
+
+
+# def string_manipulation(s):
+#     l=[]
+#     split=s.split("_")
+#     for i in split:
+#         l.append(i[0].lower()+i[1:].upper())
+#     s=' '.join(l)
+#     print(s)
+        
+# s ='This_Is_Good'
+# string_manipulation(s)
+o=tHISiSgOOD
+
+# def remove_zero(numbers):
+#     output=[]
+#     for num in numbers:
+#         num=str(num)
+#         new_str=num.split("0")
+#         output.append(int(''.join(new_str)))
+#     return output
+# my_list=[201,510,10,500,807,9010]
+# print(remove_zero(my_list))    
+    
+def infinite_num():
+    number=0
+    while True:
+        yield number
+        number+=1
+g=infinite_num()
+for i in range(10):
+    print(next(g))
+  
+def anagrams(words):
+    output={}
+    for word in words:
+        sorted_word=tuple(sorted(word))
+        print(sorted_word)
+        if sorted_word in output:
+            output[sorted_word].append(word)
+        else:
+            output[sorted_word]=[word]
+    return list(output.values())        
+input_words = ["cat", "dog", "tac", "god", "act"]
+find=anagrams(["cat", "dog", "tac", "god", "act"])
+print(find)
+ 
+def reverse_list(lis):
+    if lis==[]:
+        return []
+    else:
+        return [lis.pop()]+reverse_list(lis)
+l1=[1,2,3,4,5]
+print(reverse_list(l1))
+
+def string_manipulation(string):
+    words=string.split(" ")
+    output=''
+    for word in words:
+        for i,char in enumerate(word):
+            if i%2==0:
+                output+=char.lower()
+            else:
+                output+=char.upper()
+    return output
+st = 'hello world'
+o='hElLowOrLd'
+print(string_manipulation(st)) 
+
+def ele_frequency(numbers):
+    count=0
+    frequency=None
+    for num in set(numbers):
+        temp=numbers.count(num)
+        if temp>count:
+            count=temp
+            frequency=num
+    return frequency
+nums = [1, 2, 2, 3, 3, 3,3,3,4,4,4,4]
+print(ele_frequency(nums))    
+
+Find the First Non-Repeating Character in a String
+Question: Write a function to find the first non-repeating character in a string.
+
+Answer:
+
+python
+Copy code
+from collections import Counter
+
+def first_non_repeating_char(s):
+    count = Counter(s)
+    for char in s:
+        if count[char] == 1:
+            return char
+    return None
+
+# Test
+print(first_non_repeating_char("swiss"))
+
+
+Find the Longest Substring Without Repeating Characters
+Question: Write a function to find the length of the longest substring without repeating characters.
+
+Answer:
+
+def find_longest_substring(s:str):
+    charset= set()
+    l=0
+    res=0
+    for r in range(len(s)):
+        while s[r] in charset:
+            charset.remove(s[l])
+            l+=1
+        charset.add(s[r]) 
+        res=max(res,r-l+1)
+    return res
+i='abcabcbb'    
+print(find_longest_substring(i))    
+      
+
+  
+
+ Explain Recursion by Reversing a List.
+
+def reverseList(lst):
+    if not lst:
+        return []
+    return [lst[-1]] + reverseList(lst[:-1])
+ print(reverseList([1, 2, 3, 4, 5]))
+ Output:
+ [5,4,3,2,1]
